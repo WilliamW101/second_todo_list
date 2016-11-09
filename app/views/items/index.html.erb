@@ -1,0 +1,16 @@
+<h1> Items list </h1>
+<hr />
+
+<ol>
+  <% @item.each do |item| %>
+    <li>
+      <%= item.name %>
+      <!-- <%= link_to 'Items', item_path(item) %> - -->
+      <%= link_to 'Edit', edit_item_path(item) %> -
+      <%= link_to 'Delete', item_path(item), method: :delete, data: {confirm: 'Dlete this?'} %>
+    </li>
+  <% end %>
+</ol>
+
+<%= link_to 'Add Items', new_item_path %> <br />
+<%= link_to 'Main Lists', lists_path %>

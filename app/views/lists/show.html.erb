@@ -1,0 +1,28 @@
+<h1> List of Items </h1>
+<hr />
+
+<%  @list.items.each do |item| %>
+  <%= item.name %>
+  <!-- <%= link_to 'Edit', edit_item_path %>  <!-- change to links to other places -->
+  <%= link_to 'Delete', item_path, method: :delete %> <!-- can't delete from this -->  
+  <br />
+<% end %>
+
+<%= form_for @item do |f| %>
+
+<%= f.label :name %>
+<%= f.text_field :name %>
+
+<%= f.label :complete %>
+<%= f.check_box :complete %>
+<br />
+
+<%= f.hidden_field :list_id, :value => @list.id %>
+
+<%= f.submit %>
+
+<% end %>
+
+<br />
+<br />
+<%= link_to 'Back', lists_path %>

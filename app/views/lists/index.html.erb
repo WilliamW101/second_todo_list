@@ -1,0 +1,15 @@
+<h1> Todo list </h1>
+<hr />
+
+<ul>
+  <% @list.each do |list| %>
+    <li>
+      <%= list.thing %>
+      <%= link_to 'Items', list_path(list) %> -
+      <%= link_to 'Edit', edit_list_path(list) %> -
+      <%= link_to 'Delete', list_path(list), method: :delete, data: {confirm: 'Dlete this?'} %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to 'Add to List', new_list_path %>
